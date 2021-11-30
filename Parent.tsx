@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import ListRenderer from './ListRenderer';
 
 const mockItems = new Array(1000).fill('').map((_, i) => i.toString());
