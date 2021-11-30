@@ -1,31 +1,34 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { render } from 'react-dom';
-import Hello from './Hello';
+import Parent from './Parent';
 import './style.css';
 
-interface AppProps { }
-interface AppState {
-  name: string;
-}
+const App = () => {
+  const [type, setType] = useState('first type');
+  const [otherType, setOtherType] = useState('other type a');
 
-class App extends Component<AppProps, AppState> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: 'React'
-    };
-  }
-
-  render() {
-    return (
-      <div>
-        <Hello name={this.state.name} />
-        <p>
-          Start editing to see some magic happen :)
-        </p>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <button
+        onClick={() =>
+          setType((t) => (t === 'first type' ? 'second type' : 'first type'))
+        }
+      >
+        change type
+      </button>
+      <button
+        onClick={() =>
+          setOtherType((t) =>
+            t === 'other type a' ? 'other type b' : 'other type a'
+          )
+        }
+      >
+        change other type
+      </button>
+      <Parent type={type} anotherType={otherType} />
+      <p>Start editing to see some magic happen :)</p>
+    </div>
+  );
+};
 
 render(<App />, document.getElementById('root'));
