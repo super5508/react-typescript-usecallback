@@ -11,7 +11,7 @@ interface ParentProps {
 const Parent = ({ type, anotherType }: ParentProps) => {
   const onItemClick = useCallback(
     (event) => {
-      console.log('You clicked ', event.currentTarget);
+      console.log('You clicked ', event.currentTarget, type);
     },
     [type]
   );
