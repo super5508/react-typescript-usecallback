@@ -7,7 +7,8 @@ interface ListRendererProps {
 }
 
 const ListRenderer = ({ type, onItemClick, items }: ListRendererProps) => {
-  console.log('re render');
+  
+
   return (
     <div>
       <p>{type}</p>
@@ -22,4 +23,4 @@ const ListRenderer = ({ type, onItemClick, items }: ListRendererProps) => {
   );
 };
 
-export default React.memo(ListRenderer);
+export default ListRenderer;
